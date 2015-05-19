@@ -22,7 +22,7 @@ class Curso(object):
  		self.alumnos= list()
  	def agregarAlumno(self, alumno):
  		self.alumnos.append(alumno)
- 	del mostrarMis alumnos(self):
+ 	def mostrarMis alumnos(self):
  		for alumno in self.alumnos:
  			print('alumnos: ', alumno.nombre, alumno.apellido)
  			
