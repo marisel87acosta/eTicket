@@ -1,0 +1,25 @@
+from consulta import traerusu
+
+def usuario():
+	print('ingrese su Usuario y luego Contraseña')
+	y = str(input("Usuario: "))
+
+	arr = traerusu(y)
+
+	if arr[2] == y:
+		print("Tu usuario es correcto")
+	else:
+		print("Error: Usuario no valido")
+	print("")
+
+	x = str(input("Contraseña: "))
+
+	while arr[3] != x:
+		x = str(input("ERROR: Contraseña no valida"))
+		print("")
+
+	if arr[3] == x:
+		print("*************Tu password es correcto************")
+		print("*******************Bienvenido*******************")
+		print("*************",arr[0],"  ",arr[1],"*************")
+	return arr
