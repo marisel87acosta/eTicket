@@ -1,0 +1,247 @@
+#Módulo version 1.0.
+from Validaciones import *
+import time
+import os
+
+hora=time.strftime('%H:%M:%S')
+fecha=time.strftime('%d/%m/%y')
+
+def Encabezado():
+	os.system('cls')
+	print ('######################################################')
+	print ('#                                                    #')
+	print ('#      ---Elaboración de acta de infracción---       #')
+	print ('#                                                    #')
+	print ('######################################################')
+	print ('\nActa creada el:',fecha,'a las',hora)
+	print ('\n-- Datos del conductor --\n')
+
+####################################################################
+
+def DatosConductor():
+	Encabezado()
+	print ('Seleccione una opción:\n1. Ingresar datos.\n2. Volver.')
+	opcion=str(input())
+	repetir = False
+
+	if opcion in ('1','2'):
+		if opcion == '1':
+			repdatosconductor = True
+		else:
+			repdatosconductor = False
+	else:
+		repetir = True
+		while repetir == True:
+			Encabezado()
+			print ('Opción ingresada no válida.\nSeleccione una opción:\'1. Ingresar datos.\n2. Volver.\n')
+			opcion=str(input())
+			if opcion in ('1','2'):
+				repetir = False
+				if opcion == '1':
+					repdatosconductor = True
+				else:
+					repdatosconductor = False
+			else:
+				pass
+	
+	while repdatosconductor == True:
+
+	############# APELLIDO
+
+		Encabezado()
+		apellido=input('Ingrese apellido: ')
+		val=ValAlfaCompuesto(apellido)
+		val=ValCampoVacio(apellido)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			apellido=input('\nIngrese apellido: ')
+			val=ValAlfaCompuesto(apellido)
+			val=ValCampoVacio(apellido)
+		apellido=apellido.title()
+
+	############# NOMBRE
+
+		Encabezado()
+		nombre=input('Ingrese los nombres: ')
+		val=ValAlfaCompuesto(nombre)
+		val=ValCampoVacio(nombre)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			nombre=input('\nIngrese los nombres: ')
+			val=ValAlfaCompuesto(nombre)
+			val=ValCampoVacio(nombre)
+		nombre=nombre.title()
+
+	############# DNI
+
+		Encabezado()
+		dni=input('Ingrese D.N.I: ')
+		val=ValNumerico(dni)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			dni=input('\nIngrese D.N.I: ')
+			val=ValNumerico(dni)
+		
+	############# SEXO
+
+		Encabezado()
+		sexo=input('Ingrese el sexo (M/F): ')
+		val=ValSexo(sexo)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			sexo=input('\nIngrese el sexo (M/F): ')
+			val=ValSexo(sexo)
+		val=ValSexo(sexo)	
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			sexo=input('\nIngrese el sexo (M/F): ')
+			val=ValSexo(sexo)
+		sexo=sexo.capitalize()
+
+	############# DOMICILIO
+
+		Encabezado()
+		domicilio=str(input('Ingrese domicilio: '))
+		val=ValCampoVacio(domicilio)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			domicilio=str(input('\nIngrese domicilio: '))
+			val=ValCampoVacio(domicilio)
+		domicilio=domicilio.title()
+
+	############# ALTURA
+
+		# Encabezado()
+		# altura=input('Ingrese la altura de la domicilio: ')
+		# val=ValNumerico(altura)
+		# while val == False:
+		# 	os.system('cls')
+		# 	Encabezado()
+		# 	print ('Datos no válidos.')
+		# 	altura=input('\nIngrese la altura del domicilio: ')
+		# 	val=ValNumerico(altura)
+
+	############# LOCALIDAD
+
+		Encabezado()
+		localidad=input('Ingrese la localidad: ')
+		val=ValAlfaCompuesto(localidad)
+		val=ValCampoVacio(localidad)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			localidad=input('\nIngrese la localidad: ')
+			val=ValAlfaCompuesto(localidad)
+			val=ValCampoVacio(localidad)
+		localidad=localidad.title()
+
+	############# PROVINCIA
+
+		Encabezado()
+		provincia=input('Ingrese la provincia: ')
+		val=ValAlfaCompuesto(provincia)
+		val=ValCampoVacio(provincia)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			provincia=input('\nIngrese la provincia: ')
+			val=ValAlfaCompuesto(provincia)
+			val=ValCampoVacio(provincia)
+		provincia=provincia.title()
+
+	############# PAIS
+
+		Encabezado()
+		nacionalidad=input('Ingrese la nacionalidad: ')
+		val=ValAlfaCompuesto(nacionalidad)
+		val=ValCampoVacio(nacionalidad)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			nacionalidad=input('\nIngrese la nacionalidad: ')
+			val=ValAlfaCompuesto(nacionalidad)
+			val=ValCampoVacio(nacionalidad)
+		nacionalidad=nacionalidad.title()
+
+	############# CREACION DEL DICCIONARIO.
+
+		actaconductor = {}
+		actaconductor ["Nombre"] = (nombre)
+		actaconductor ["Apellido"] = (apellido)
+		actaconductor ["D.N.I"] = (dni)
+		actaconductor ["Sexo"] = (sexo)
+		actaconductor ["Domicilio"] = (domicilio)
+		actaconductor ["Localidad"] = (localidad)
+		actaconductor ["Provincia"] = (provincia)
+		actaconductor ["Nacionalidad"] = (nacionalidad)
+		actaconductor ["Fecha y hora"] = (fecha,hora)
+
+	############# CONFIRMACION DE DATOS
+
+		Encabezado()
+		print('Los datos ingresados fueron:\n')
+		print('Apellido:',actaconductor ["Apellido"])
+		print('Nombre:',actaconductor ["Nombre"])
+		print('D.N.I:',actaconductor ["D.N.I"])
+		print('Sexo:',actaconductor ["Sexo"])
+		print('Domicilio:',actaconductor ["Domicilio"])
+		print('Localidad:',actaconductor ["Localidad"])
+		print('Provincia:',actaconductor ["Provincia"])
+		print('Nacionalidad:',actaconductor ["Nacionalidad"])
+		print('\nSon estos datos correctos?')
+		opcion=str(input('1. Confirmar datos.\n2. Reingresar datos.\n3. Descartar datos y volver.\n'))
+		
+
+		if opcion in ('1','2','3'):
+			val=True
+		else:
+			val=False
+
+		while val == False:
+			Encabezado()
+			print('Los datos ingresados fueron:\n')
+			print('Apellido:',actaconductor ["Apellido"])
+			print('Nombre:',actaconductor ["Nombre"])
+			print('D.N.I:',actaconductor ["D.N.I"])
+			print('Sexo:',actaconductor ["Sexo"])
+			print('Domicilio:',actaconductor ["Domicilio"])
+			print('Localidad:',actaconductor ["Localidad"])
+			print('Provincia:',actaconductor ["Provincia"])
+			print('Nacionalidad:',actaconductor ["Nacionalidad"])
+			print('\nOpción ingresada no válida.')
+			print('\nSon estos datos correctos?')
+			opcion=str(input('1. Confirmar datos.\n2. Reingresar datos.\n3. Descartar datos y volver.\n'))
+				
+			if opcion in ('1','2','3'):
+				val=True
+			else:
+				val=False
+
+		if opcion == '1':
+			Encabezado()
+			input('Datos guardados.\nPresione enter para continuar...')
+			return actaconductor
+		elif opcion == '2':
+			repdatosconductor = True
+		else:
+			Encabezado()
+			input('Datos descartados.\nPresione enter para continuar...')
+			actaconductor.clear()
+			return actaconductor	
+			
+
+# Junto con la información hay que devolver la fecha y hora.
+# Falta resolver como se va a devolver la informacion del conductor, del vehículo y la infracción en si.
