@@ -6,7 +6,7 @@ class Persona(object):
 		return self.nombre
 
 class Alumno(Persona):
-	  def __init__()
+	  def __init__(self, n=None , a= None ,e= None)
   		self.nombre=n
   		self.apellido=a
   		self.edad=e
