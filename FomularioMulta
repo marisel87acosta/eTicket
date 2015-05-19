@@ -54,14 +54,14 @@ def DatosMulta():
 		elif select == '4':
 			infracciones.append ('Circular en moto sin casco.')
 		elif select == '5':
-			velocidad=input('\nEspecifique velocidad (en km/h: ')
-			velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+			velocidad=input('\nEspecifique velocidad (en km/h): ')
+			velocidad=('Exceso de velocidad ('+velocidad+'km/h).')
 			infracciones.append (velocidad)
 		elif select == '6':
 			infracciones.append ('Circular usando tel. cel. o auriculares.')
 		elif select == '7':
 			alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
-			alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+			alcohol=('Alcohol en sangre ('+alcohol+'g/L).')
 			infracciones.append (alcohol)			
 		elif select == '8':
 			infracciones.append ('Ocupantes no usan cinturón de seguridad.')
@@ -120,14 +120,14 @@ def DatosMulta():
 					elif select == '4':
 						infracciones.append ('Circular en moto sin casco.')
 					elif select == '5':
-						velocidad=input('\nEspecifique velocidad (en km/h: ')
-						velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+						velocidad=input('\nEspecifique velocidad (en km/h): ')
+						velocidad=('Exceso de velocidad ('+velocidad+'km/h).')
 						infracciones.append (velocidad)
 					elif select == '6':
 						infracciones.append ('Circular usando tel. cel. o auriculares.')
 					elif select == '7':
 						alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
-						alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+						alcohol=('Alcohol en sangre ('+alcohol+'g/L).')
 						infracciones.append (alcohol)			
 					elif select == '8':
 						infracciones.append ('Ocupantes no usan cinturón de seguridad.')
@@ -183,13 +183,13 @@ def DatosMulta():
 			elif select == '4':
 				infracciones.append ('Circular en moto sin casco.')
 			elif select == '5':
-				velocidad=input('\nEspecifique velocidad (en km/h: ')
-				velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+				velocidad=input('\nEspecifique velocidad (en km/h): ')
+				velocidad=('Exceso de velocidad ('+velocidad+'km/h).')
 				infracciones.append (velocidad)
 				infracciones.append ('Circular usando tel. cel. o auriculares.')
 			elif select == '7':
 				alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
-				alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+				alcohol=('Alcohol en sangre ('+alcohol+'g/L).')
 				infracciones.append (alcohol)		
 			elif select == '8':
 				infracciones.append ('Ocupantes no usan cinturón de seguridad.')
@@ -243,7 +243,7 @@ def DatosMulta():
 					select=str(input())
 					select=select.upper()
 							
-					if select in ('1','2','3','4','5','6','7','8','9','10','11','S',):
+					if select in ('1','2','3','4','5','6','7','8','9','10','11','S','C'):
 						error = False
 						if select == '1':
 							infracciones.append ('Circular sin luces bajas encendidas.')
@@ -254,13 +254,13 @@ def DatosMulta():
 						elif select == '4':
 							infracciones.append ('Circular en moto sin casco.')
 						elif select == '5':
-							velocidad=input('\nEspecifique velocidad (en km/h: ')
-							velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+							velocidad=input('\nEspecifique velocidad (en km/h): ')
+							velocidad=('Exceso de velocidad ('+velocidad+'km/h).')
 							infracciones.append (velocidad)
 							infracciones.append ('Circular usando tel. cel. o auriculares.')
 						elif select == '7':
 							alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
-							alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+							alcohol=('Alcohol en sangre ('+alcohol+'g/L).')
 							infracciones.append (alcohol)			
 						elif select == '8':
 							infracciones.append ('Ocupantes no usan cinturón de seguridad.')
