@@ -1,0 +1,53 @@
+from funciones import cargar, contarSexo, contarXedad, buscarPersona
+import os
+print ("bienvenido a esta buen programa")
+
+print("Porfavor cargue los 2 cursos")
+print("empezemos por el primer curso")
+curso1 = list()
+cargar(curso1)
+print("vamos por el segundo curso")
+curso2 = list()
+cargar(curso2)
+os.system('cls')
+
+print("Bueno, que quiere hacer??? \n")
+print("1. buscar una persona")
+print("2. contar cantidad de sexo")
+print("3. contar alumnos segund edad")
+op = input()
+
+if op == '1':
+	ape = input("que apllido quiere buscar??:")
+	buscado = buscarPersona(ape,[curso1,curso2])
+	cant1 = len(buscado[0])
+	cant2 = len(buscado[1])
+	print ("\n la cantidad de personas con ese appellido en el curso 1 es: " , cant1)
+	if cant1 != 0:
+		print("los cuales son:")
+		for alumno in buscado[0]:
+			print (alumno.get('nombre'))
+	print ("\n la cantidad de personas con ese appellido en el curso 2 es: " , cant2)
+	if cant2 != 0:
+		print("los cuales son:")
+		for alumno in buscado[1]:
+			print(alumno.get('nombre'))
+elif op == '2':
+	cual =input("de que curso quiere saber?? 1 o 2: ")
+	if cual == '1':
+		m,f = contarSexo(curso1)
+	else:
+		m,f = contarSexo(curso2)
+	print("la cantidad de hombres que existen en el curso",cual,"es de:",m)
+	print("la cantidad de mujeres que existen en el curso",cual,"es de:",f)
+elif op == '3':
+	cual = input("ingrese sobre que curso quiere trabjar")
+	edad = input("ingrese la edad de filtro")
+	if cual == '1':
+		menos,mas = contarXedad(curso1,edad)
+	else:
+		menos,mas = contarXedad(curso2,edad)
+	print("la cantidad de personas del curso",cual," que superan los",edad,"anios es: ",mas )
+	print("la cantidad de personas del curso",cual," que no superan los",edad,"anios es: ",menos )
+else:
+	print("op no valida")	
