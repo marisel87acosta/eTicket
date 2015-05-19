@@ -1,0 +1,45 @@
+#Módulo versión 0.3.
+def ValAlfabetico(valor):
+	if valor.isalpha() == True:
+		return True
+	else:
+		return False
+
+def ValNumerico(valor):
+	if valor.isdigit() == True:
+		return True
+	else:
+		return False
+
+def ValAlfaCompuesto(valor):
+	if valor.isdigit() == True:
+		return False
+	else:
+		return True
+
+def ValAlfanumerico(valor):
+	if valor.isalum() == True:
+		return True
+	else:
+		return False
+
+def ValSexo(valor):
+	valor=valor.capitalize()
+
+	if valor == 'F':
+		marca = 1
+	elif valor == 'M':
+		marca = 1
+	else:
+		marca = 0
+
+	if marca == 1:
+		return True
+	else:
+		return False
+
+def ValCampoVacio(valor):
+	if valor == '':
+		return False
+	else:
+		return True
