@@ -1,0 +1,9 @@
+class Persona(object):
+	def __init__(self, nombre= None, apellido= None):
+    self.nombre=nombre
+		self.apellido=apellido
+	def __str__(self):
+		return self.nombre
+
+class Alumno(Persona):
+  def __init__()
