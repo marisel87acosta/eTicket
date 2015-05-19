@@ -1,0 +1,77 @@
+#Módulo version 1.0.
+from FormularioConductor import DatosConductor
+from FormularioVehiculo import DatosVehiculo
+from FormularioMulta import DatosMulta
+import time
+import os
+
+os.system('color 0E')
+hora=time.strftime('%H:%M:%S')
+fecha=time.strftime('%d/%m/%y')
+
+
+def FormularioMenu(actaconductor,actavehiculo,actamulta,actaobservaciones):
+	repetir = True
+	while repetir==True:
+		os.system('cls')
+		print ('######################################################')
+		print ('#                                                    #')
+		print ('#      ---Elaboración de acta de infracción---       #')
+		print ('#                                                    #')
+		print ('######################################################')
+		print ('\nActa creada el:',fecha,'a las',hora)
+		print ('\n-- Menú principal --\n')
+		print ('Ingresar:\n')
+		print ('1. Datos del conductor.')
+		print ('2. Datos del vehículo.')
+		print ('3. Faltas realizadas.')
+		print ('4. Observaciones.')
+		print ('\n5. Salir del ingreso de actas.')
+		opcion=str(input())
+
+# AGREGAR OPCIONES DE SALIR Y GUARDAR O NO.
+
+		if opcion in ('1','2','3','4','5'):
+			val=True
+		else:
+			val=False
+
+		while val == False:
+			os.system('cls')
+			repetir=0
+			print ('######################################################')
+			print ('#                                                    #')
+			print ('#      ---Elaboración de acta de infracción---       #')
+			print ('#                                                    #')
+			print ('######################################################')
+			print ('\nActa creada el:',fecha,'a las',hora)
+			print ('\n-- Menú principal --\n')
+			print ('\nOpción ingresada no válida.\n')
+			print ('Ingresar:\n')
+			print ('1. Datos del conductor.')
+			print ('2. Datos del vehículo.')
+			print ('3. Faltas realizadas.')
+			print ('4. Observaciones.')
+			print ('\n5. Salir del ingreso de actas.')
+			opcion=str(input())
+
+			if opcion in ('1','2','3','4','5'):
+				val=True
+			else:
+				val=False
+
+		if opcion == '1':
+			actaconductor = DatosConductor()
+		elif opcion == '2':
+			actavehiculo = DatosVehiculo()
+		elif opcion == '3':
+			actamulta= DatosMulta()
+		elif opcion == '4':
+			actaobservaciones= Observaciones()
+		else:
+			acta = [actaconductor,actavehiculo,actamulta,actaobservaciones]
+			repetir = False
+			return acta
+
+
+# return lista de diccionarios completos
