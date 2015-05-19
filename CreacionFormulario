@@ -1,0 +1,12 @@
+from FormularioMenu import FormularioMenu
+
+def CreacionFormulario():
+
+	actaconductor={}
+	actavehiculo={}
+	actamulta={}
+	actaobservaciones={}
+
+	acta = FormularioMenu(actaconductor,actavehiculo,actamulta,actaobservaciones)
+
+	return acta
