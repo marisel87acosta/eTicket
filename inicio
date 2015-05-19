@@ -1,0 +1,34 @@
+import os
+
+def draw():
+	os.system('cls')
+	print('##########################################')
+	print("#        Bienvenido a E-Ticket           #")
+	print("#         By SoftwareSeekers             #")
+	print('##########################################')
+
+def cleanScreen():
+	os.system('cls')
+
+def initScreen():
+	os.system('title E-Ticket By SoftwareSeekers ®2015')
+	os.system('@echo off')
+	os.system('color 79')
+
+def menu():
+	respuesta = input('Elegir Opcion: \n 1. Cargar multa\n 2. Salir \n')
+	if (respuesta == '1' or respuesta == '2'):
+		return respuesta		
+	else:
+		print("ERROR: Opcion no valida \n")
+		os.system('pause')
+
+def elegirMulta():
+	print('Elija el tipo de multa: \n 1. Multa leve \n 2. Multa grave \n 3. Multa muy grave\n' )
+	op=input()
+	if (op=='1' or op=='2' or op=='3'):
+		return op
+	else:
+		print("ERROR: Opcion no valida \n")
+		os.system('pause')
+	
