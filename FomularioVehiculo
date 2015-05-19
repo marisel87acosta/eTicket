@@ -1,0 +1,288 @@
+#Módulo version 1.0.
+from Validaciones import *
+import time
+import os
+
+hora=time.strftime('%H:%M:%S')
+fecha=time.strftime('%d/%m/%y')
+
+def Encabezado():
+	os.system('cls')
+	print ('######################################################')
+	print ('#                                                    #')
+	print ('#      ---Elaboración de acta de infracción---       #')
+	print ('#                                                    #')
+	print ('######################################################')
+	print ('\nActa creada el:',fecha,'a las',hora)
+	print ('\n-- Datos del vehículo --\n')
+
+####################################################################
+
+def DatosVehiculo():
+	Encabezado()
+	print ('Seleccione una opción:\n1. Ingresar datos.\n2. Volver.')
+	opcion=str(input())
+	repetir = False
+
+	if opcion in ('1','2'):
+		if opcion == '1':
+			repdatosvehiculo = True
+		else:
+			repdatosvehiculo = False
+	else:
+		repetir = True
+		while repetir == True:
+			Encabezado()
+			print ('Opción ingresada no válida.\nSeleccione una opción:\'1. Ingresar datos.\n2. Volver.\n')
+			opcion=str(input())
+			if opcion in ('1','2'):
+				repetir = False
+				if opcion == '1':
+					repdatosvehiculo = True
+				else:
+					repdatosvehiculo = False
+			else:
+				pass
+	
+	while repdatosvehiculo == True:
+
+	############# N° DE DOMINIO
+
+		Encabezado()
+		dominio=str(input('Ingrese el dominio (sin guión): '))
+		val=ValCampoVacio(dominio)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			dominio=str(input('\nIngrese el dominio (sin guión): '))
+			val=ValCampoVacio(dominio)
+		dominio=dominio.upper()
+
+	############# PROPIETARIO APELLIDO
+
+		Encabezado()
+		propietarioap=input('Ingrese el apellido del propietario: ')
+		val=ValCampoVacio(propietarioap)
+		val=ValAlfaCompuesto(propietarioap)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			propietarioap=input('\nIngrese el apellido del propietario: ')
+			val=ValCampoVacio(propietarioap)
+			val=ValAlfaCompuesto(propietarioap)
+		propietarioap=propietarioap.title()
+
+	############# PROPIETARIO NOMBRE
+
+		Encabezado()
+		propietarionom=input('Ingrese los nombres del propietario: ')
+		val=ValCampoVacio(propietarionom)
+		val=ValAlfaCompuesto(propietarionom)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			propietarionom=input('\nIngrese los nombres del propietario: ')
+			val=ValCampoVacio(propietarionom)
+			val=ValAlfaCompuesto(propietarionom)
+		propietarionom=propietarionom.title()
+
+	############# DNI
+
+		Encabezado()
+		dni=input('Ingrese D.N.I del propietario: ')
+		val=ValCampoVacio(dni)
+		val=ValNumerico(dni)
+		while val == False:
+			os.system('cls')
+			Encabezado()
+			print ('Datos no válidos.')
+			dni=input('\nIngrese D.N.I del propietario: ')
+			val=ValCampoVacio(dni)
+			val=ValNumerico(dni)
+
+	############# MARCA
+
+		Encabezado()
+		marca=input('Ingrese la marca del vehículo: ')
+		val=ValCampoVacio(marca)
+		val=ValAlfaCompuesto(marca)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			marca=input('\nIngrese la marca del vehículo: ')
+			val=ValCampoVacio(marca)
+			val=ValAlfaCompuesto(apellido)
+		marca=marca.title()
+
+	############# MODELO
+
+		Encabezado()
+		modelo=input('Ingrese el modelo del vehículo: ')
+		val=ValCampoVacio(modelo)
+		val=ValAlfaCompuesto(modelo)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			modelo=input('\nIngrese el modelo del vehículo: ')
+			val=ValCampoVacio(modelo)
+			val=ValAlfaCompuesto(modelo)
+		modelo=modelo.title()
+
+	############# TIPO
+
+		Encabezado()
+		print('Ingrese el tipo de vehículo:\n')
+		print('1. Automóvil.')
+		print('2. Camioneta.')
+		print('3. Moto.')
+		print('4. Ómnibus.')
+		print('5. Camión.')
+		print('6. Acoplado.')
+		print('7. Trailer.')
+		print('8. Otro.')
+		select=str(input())
+		repetir = False
+
+		if select in ('1','2','3','4','5','6','7','8'):
+			if select == '1':
+				tipo = 'Automóvil'
+			elif select == '2':
+				tipo = 'Camioneta'
+			elif select == '3':
+				tipo = 'Moto'
+			elif select == '4':
+				tipo = 'Ómnibus'
+			elif select == '5':
+				tipo = 'Camión'
+			elif select == '6':
+				tipo = 'Acoplado'
+			elif select == '7':
+				tipo = 'Trailer'
+			else:
+				tipo = str(input('\nEspecifique el tipo de vehículo: '))
+				
+				if tipo == '':
+					repetir = True
+				else:
+					pass
+		else:
+			repetir = True
+			
+		while repetir == True:
+				Encabezado()
+				print('Opción ingresada no válida.\n')
+				print('Ingrese el tipo de vehículo:\n')
+				print('1. Automóvil.')
+				print('2. Camioneta.')
+				print('3. Moto.')
+				print('4. Ómnibus.')
+				print('5. Camión.')
+				print('6. Acoplado.')
+				print('7. Trailer.')
+				print('8. Otro.')
+				select=str(input())
+
+				if select in ('1','2','3','4','5','6','7','8'):
+					repetir = False
+					if select == '1':
+						tipo = 'Automóvil'
+					elif select == '2':
+						tipo = 'Camioneta'
+					elif select == '3':
+						tipo = 'Moto'
+					elif select == '4':
+						tipo = 'Ómnibus'
+					elif select == '5':
+						tipo = 'Camión'
+					elif select == '6':
+						tipo = 'Acoplado'
+					elif select == '7':
+						tipo = 'Trailer'
+					else:
+						tipo = str(input('\nEspecifique el tipo de vehículo: '))
+
+						if tipo == '':
+							repetir = True
+						else:
+							pass
+				else:
+					pass
+
+		tipo=tipo.capitalize()
+
+	############# COLOR
+
+		Encabezado()
+		color=input('Ingrese el color del vehículo: ')
+		val=ValAlfaCompuesto(color)
+		while val == False:
+			Encabezado()
+			print ('Datos no válidos.')
+			color=input('\nIngrese el color del vehículo: ')
+			val=ValAlfaCompuesto(color)
+		color=color.capitalize()
+
+	############# CREACION DEL DICCIONARIO
+
+		actavehiculo = {}
+		actavehiculo ["Dominio"] = (dominio)
+		actavehiculo ["Apellido del propietario"] = (propietarioap)
+		actavehiculo ["Nombre del propietario"] = (propietarionom)
+		actavehiculo ["D.N.I"] = (dni)
+		actavehiculo ["Marca"] = (marca)
+		actavehiculo ["Modelo"] = (modelo)
+		actavehiculo ["Tipo"] = (tipo)
+		actavehiculo ["Color"] = (color)
+
+	############# CONFIRMACION DE DATOS
+
+		Encabezado()
+		print('Los datos ingresados fueron:\n')
+		print('Dominio:',actavehiculo ["Dominio"])
+		print('Apellido del propietario:',actavehiculo ["Apellido del propietario"])
+		print('Nombre del propietario:',actavehiculo ["Nombre del propietario"])
+		print('D.N.I:',actavehiculo ["D.N.I"])
+		print('Marca:',actavehiculo ["Marca"])
+		print('Modelo:',actavehiculo ["Modelo"])
+		print('Tipo:',actavehiculo ["Tipo"])
+		print('Color:',actavehiculo ["Color"])
+		print('\nSon estos datos correctos?')
+		opcion=str(input('1. Confirmar datos.\n2. Reingresar datos.\n3. Descartar datos y volver.\n'))
+		
+
+		if opcion in ('1','2','3'):
+			val=True
+		else:
+			val=False
+
+		while val == False:
+			Encabezado()
+			print('Los datos ingresados fueron:\n')
+			print('Dominio:',actavehiculo ["Dominio"])
+			print('Apellido del propietario:',actavehiculo ["Apellido del propietario"])
+			print('Nombre del propietario:',actavehiculo ["Nombre del propietario"])
+			print('D.N.I:',actavehiculo ["D.N.I"])
+			print('Marca:',actavehiculo ["Marca"])
+			print('Modelo:',actavehiculo ["Modelo"])
+			print('Tipo:',actavehiculo ["Tipo"])
+			print('Color:',actavehiculo ["Color"])
+			print('\nOpción ingresada no válida.')
+			print('\nSon estos datos correctos?')
+			opcion=str(input('1. Confirmar datos.\n2. Reingresar datos.\n3. Descartar datos y volver.\n'))
+				
+			if opcion in ('1','2','3'):
+				val=True
+			else:
+				val=False
+
+		if opcion == '1':
+			Encabezado()
+			input('Datos guardados.\nPresione enter para continuar...')
+			return actavehiculo
+		elif opcion == '2':
+			repdatosvehiculo = True
+		else:
+			Encabezado()
+			input('Datos descartados.\nPresione enter para continuar...')
+			actavehiculo.clear()
+			return actavehiculo	
