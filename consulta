@@ -1,0 +1,25 @@
+import mysql.connector
+""" Esta consulta anda for (nombre, apellido,elus,elpas) in cursor:
+    print("Nombre: " + nombre + ", Apellido: " + apellido + ", Usuario: " + elus + ", y su Contraseña: "+elpas)
+    print(" ") """
+conector = mysql.connector.connect(user='root', password='', host='localhost', database='swseeker')
+cursor = conector.cursor()
+
+def traerusu(y):
+	parms = "%" + y + "%"
+	query = "SELECT nombre,apellido,us, pass FROM usuario where us like  '%s'" %(parms)
+	cursor.execute(query)
+	a = []
+	for (nombre,ape,elus,elpas) in cursor.fetchall():
+		nom = nombre
+		ap = ape
+		u = elus
+		p = elpas
+
+	a.append(nom)
+	a.append(ap)
+	a.append(u)
+	a.append(p)
+	
+	return a
+
