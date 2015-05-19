@@ -1,0 +1,24 @@
+from inicio import *
+import os
+from CreacionFormulario import *
+initScreen()
+
+
+control = '' 
+draw()
+usuario=usuario()
+print()
+cleanScreen()
+
+repetir=True
+
+while repetir :
+	draw()
+	control = menu()
+	if (control == '1'):
+		acta = CreacionFormulario()
+	else:
+		repetir=False
+draw()
+print('\nGracias por utilizar E-Ticket')
+	#logout?
