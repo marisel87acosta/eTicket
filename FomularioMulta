@@ -1,0 +1,343 @@
+#Módulo version 1.0.
+from Validaciones import *
+import time
+import os
+
+hora=time.strftime('%H:%M:%S')
+fecha=time.strftime('%d/%m/%y')
+
+def Encabezado():
+	os.system('cls')
+	print ('######################################################')
+	print ('#                                                    #')
+	print ('#      ---Elaboración de acta de infracción---       #')
+	print ('#                                                    #')
+	print ('######################################################')
+	print ('\nActa creada el:',fecha,'a las',hora)
+	print ('\n-- Detalles de la multa --\n')
+
+####################################################################
+
+def DatosMulta():
+	
+	############# DETALLES DE MULTA
+		
+	infracciones = []
+	continuar = True
+	segundaparte = False
+
+	Encabezado()
+	print('Faltas ingresadas: Ninguna.\n')
+	print('Ingrese el tipo de falta realizada:\n')
+	print('1. Circular sin luces bajas encendidas.')
+	print('2. Estacionamiento indebido.')
+	print('3. No respetar la señalización de semáforo.')
+	print('4. Circular en moto sin casco.')
+	print('5. Exceso de velocidad.')
+	print('6. Circular usando tel. cel. o auriculares.')
+	print('7. Alcohol en sangre.')
+	print('8. Ocupantes no usan cinturón de seguridad.')
+	print('9. Referente a documentación del conductor/automotor.')
+	print('10. Licencia vencida.')
+	print('11. Otra.')
+	print('\nS - Salir.')
+	select=str(input())
+	select=select.upper()
+			
+	if select in ('1','2','3','4','5','6','7','8','9','10','11','S',):
+		if select == '1':
+			infracciones.append ('Circular sin luces bajas encendidas.')
+		elif select == '2':
+			infracciones.append ('Estacionamiento indebido.')
+		elif select == '3':
+			infracciones.append ('No respetar la señalización de semáforo.')
+		elif select == '4':
+			infracciones.append ('Circular en moto sin casco.')
+		elif select == '5':
+			velocidad=input('\nEspecifique velocidad (en km/h: ')
+			velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+			infracciones.append (velocidad)
+		elif select == '6':
+			infracciones.append ('Circular usando tel. cel. o auriculares.')
+		elif select == '7':
+			alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
+			alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+			infracciones.append (alcohol)			
+		elif select == '8':
+			infracciones.append ('Ocupantes no usan cinturón de seguridad.')
+		elif select == '9':
+			infracciones.append ('Referente a documentación del conductor/automotor.')
+		elif select == '10':
+			infracciones.append ('Licencia vencida.')
+		elif select == '11':
+			opcionotra = str(input('\nDetalle la falta realizada: '))
+			opcionotra = opcionotra.capitalize()
+			infracciones.append(opcionotra)
+			if opcionotra == '':
+				repetir = True
+				while repetir == True:
+					Encabezado()
+					print('El Campo no puede quedar vacío.')
+					opcionotra = str(input('\nDetalle la falta realizada: '))
+					opcionotra = opcionotra.capitalize()
+					infracciones.append(opcionotra)
+			else:
+				pass
+
+		elif select == 'S':
+			continuar = False
+
+		else:
+			error = True
+			while error == True:
+				Encabezado()
+				print('Opción ingresada no válida.\n')
+				print('Faltas ingresadas: Ninguna.\n')
+				print('Ingrese el tipo de falta realizada:\n')
+				print('1. Circular sin luces bajas encendidas.')
+				print('2. Estacionamiento indebido.')
+				print('3. No respetar la señalización de semáforo.')
+				print('4. Circular en moto sin casco.')
+				print('5. Exceso de velocidad.')
+				print('6. Circular usando tel. cel. o auriculares.')
+				print('7. Alcohol en sangre.')
+				print('8. Ocupantes no usan cinturón de seguridad.')
+				print('9. Referente a documentación del conductor/automotor.')
+				print('10. Licencia vencida.')
+				print('11. Otra.')
+				print('\nS - Salir.')
+				select=str(input())
+				select=select.upper()
+						
+				if select in ('1','2','3','4','5','6','7','8','9','10','11','S',):
+					error = False
+					if select == '1':
+						infracciones.append ('Circular sin luces bajas encendidas.')
+					elif select == '2':
+						infracciones.append ('Estacionamiento indebido.')
+					elif select == '3':
+						infracciones.append ('No respetar la señalización de semáforo.')
+					elif select == '4':
+						infracciones.append ('Circular en moto sin casco.')
+					elif select == '5':
+						velocidad=input('\nEspecifique velocidad (en km/h: ')
+						velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+						infracciones.append (velocidad)
+					elif select == '6':
+						infracciones.append ('Circular usando tel. cel. o auriculares.')
+					elif select == '7':
+						alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
+						alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+						infracciones.append (alcohol)			
+					elif select == '8':
+						infracciones.append ('Ocupantes no usan cinturón de seguridad.')
+					elif select == '9':
+						infracciones.append ('Referente a documentación del conductor/automotor.')
+					elif select == '10':
+						infracciones.append ('Licencia vencida.')
+					elif select == '11':
+						opcionotra = str(input('\nDetalle la falta realizada: '))
+						opcionotra = opcionotra.capitalize()
+						infracciones.append(opcionotra)
+						if opcionotra == '':
+							repetir = True
+							while repetir == True:
+								Encabezado()
+								print('El Campo no puede quedar vacío.')
+								opcionotra = str(input('\nDetalle la falta realizada: '))
+								opcionotra = opcionotra.capitalize()
+								infracciones.append(opcionotra)
+						else:
+							pass
+					else:
+						error = True
+
+
+
+	while continuar == True:
+		Encabezado()
+		print('Faltas ingresadas:',infracciones,'\n')
+		print('Ingrese el tipo de falta realizada:\n')
+		print('1. Circular sin luces bajas encendidas.')
+		print('2. Estacionamiento indebido.')
+		print('3. No respetar la señalización de semáforo.')
+		print('4. Circular en moto sin casco.')
+		print('5. Exceso de velocidad.')
+		print('6. Circular usando tel. cel. o auriculares.')
+		print('7. Alcohol en sangre.')
+		print('8. Ocupantes no usan cinturón de seguridad.')
+		print('9. Referente a documentación del conductor/automotor.')
+		print('10. Licencia vencida.')
+		print('11. Otra.')
+		print('\nS - Salir sin guardar.     C - Confirmar datos y continuar.')
+		select=str(input())
+		select=select.upper()
+				
+		if select in ('1','2','3','4','5','6','7','8','9','10','11','S','C'):
+			if select == '1':
+				infracciones.append ('Circular sin luces bajas encendidas.')
+			elif select == '2':
+				infracciones.append ('Estacionamiento indebido.')
+			elif select == '3':
+				infracciones.append ('No respetar la señalización de semáforo.')
+			elif select == '4':
+				infracciones.append ('Circular en moto sin casco.')
+			elif select == '5':
+				velocidad=input('\nEspecifique velocidad (en km/h: ')
+				velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+				infracciones.append (velocidad)
+				infracciones.append ('Circular usando tel. cel. o auriculares.')
+			elif select == '7':
+				alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
+				alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+				infracciones.append (alcohol)		
+			elif select == '8':
+				infracciones.append ('Ocupantes no usan cinturón de seguridad.')
+			elif select == '9':
+				infracciones.append ('Referente a documentación del conductor/automotor.')
+			elif select == '10':
+				infracciones.append ('Licencia vencida.')
+			elif select == '11':
+				opcionotra = str(input('\nDetalle la falta realizada: '))
+				opcionotra = opcionotra.capitalize()
+				infracciones.append(opcionotra)
+				if opcionotra == '':
+					repetir = True
+					while repetir == True:
+						Encabezado()
+						print('El Campo no puede quedar vacío.')
+						opcionotra = str(input('\nDetalle la falta realizada: '))
+						opcionotra = opcionotra.capitalize()
+						infracciones.append(opcionotra)
+						if opcionotra == '':
+							pass
+						else:
+							repetir = False
+				else:
+					pass
+
+			elif select == 'S':
+				continuar = False
+			elif select == 'C':
+				continuar = False
+				segundaparte = True
+			else:
+				error = True
+				while error == True:
+					Encabezado()
+					print('Opción ingresada no válida.\n')
+					print('Faltas ingresadas: Ninguna.\n')
+					print('Ingrese el tipo de falta realizada:\n')
+					print('1. Circular sin luces bajas encendidas.')
+					print('2. Estacionamiento indebido.')
+					print('3. No respetar la señalización de semáforo.')
+					print('4. Circular en moto sin casco.')
+					print('5. Exceso de velocidad.')
+					print('6. Circular usando tel. cel. o auriculares.')
+					print('7. Alcohol en sangre.')
+					print('8. Ocupantes no usan cinturón de seguridad.')
+					print('9. Referente a documentación del conductor/automotor.')
+					print('10. Licencia vencida.')
+					print('11. Otra.')
+					print('\nS - Salir sin guardar.     C - Confirmar datos y continuar.')
+					select=str(input())
+					select=select.upper()
+							
+					if select in ('1','2','3','4','5','6','7','8','9','10','11','S',):
+						error = False
+						if select == '1':
+							infracciones.append ('Circular sin luces bajas encendidas.')
+						elif select == '2':
+							infracciones.append ('Estacionamiento indebido.')
+						elif select == '3':
+							infracciones.append ('No respetar la señalización de semáforo.')
+						elif select == '4':
+							infracciones.append ('Circular en moto sin casco.')
+						elif select == '5':
+							velocidad=input('\nEspecifique velocidad (en km/h: ')
+							velocidad=('Exceso de velocidad (',velocidad,'km/h).')
+							infracciones.append (velocidad)
+							infracciones.append ('Circular usando tel. cel. o auriculares.')
+						elif select == '7':
+							alcohol=input('\nEspecifique nivel de alcohol (g/L): ')
+							alcohol=('Alcohol en sangre (',alcohol,'g/L).')
+							infracciones.append (alcohol)			
+						elif select == '8':
+							infracciones.append ('Ocupantes no usan cinturón de seguridad.')
+						elif select == '9':
+							infracciones.append ('Referente a documentación del conductor/automotor.')
+						elif select == '10':
+							infracciones.append ('Licencia vencida.')
+						elif select == '11':
+							opcionotra = str(input('\nDetalle la falta realizada: '))
+							opcionotra = opcionotra.capitalize()
+							infracciones.append(opcionotra)
+							if opcionotra == '':
+								repetir = True
+								while repetir == True:
+									Encabezado()
+									print('El Campo no puede quedar vacío.')
+									opcionotra = str(input('\nDetalle la falta realizada: '))
+									opcionotra = opcionotra.capitalize()
+									infracciones.append(opcionotra)
+									if opcionotra == '':
+										pass
+									else:
+										repetir = False
+							else:
+								pass
+						elif select == 'S':
+							continuar = False
+						elif select == 'C':
+							continuar = False
+							segundaparte = True
+						else:
+							error = True
+
+
+	if segundaparte == True:
+		Encabezado()
+		print('Indique donde fue el hecho:')
+		lugar=str(input('Dirección: '))
+		if lugar == '':
+			repetir = True
+			while repetir == True:
+				Encabezado()
+				print('El Campo no puede quedar vacío.')
+				lugar = str(input('\nDetalle la falta realizada: '))
+				lugar = lugar.capitalize()
+				if lugar == '':
+					pass
+		else:
+			repetir = False
+		
+		Encabezado()
+		print('Indique donde fue el hecho:')
+		localidad=str(input('Localidad: '))
+		if localidad == '':
+				repetir = True
+				while repetir == True:
+					Encabezado()
+					print('El Campo no puede quedar vacío.')
+					localidad = str(input('\nDetalle la falta realizada: '))
+					localidad = localidad.capitalize()
+					if localidad == '':
+						pass
+					else:
+						repetir = False
+		else:
+			pass
+	
+########################################################
+		actamulta = {}
+		actamulta ["Infracciones"] = infracciones
+		actamulta ["Lugar"] = lugar
+		actamulta ["Localidad"] = localidad
+########################################################
+
+		Encabezado()
+		print('Datos ingresados. Presione enter para continuar...')
+		return actamulta
+	
+	else:
+		pass
