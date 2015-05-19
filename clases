@@ -25,4 +25,14 @@ class Curso(object):
  	def mostrarMis alumnos(self):
  		for alumno in self.alumnos:
  			print('alumnos: ', alumno.nombre, alumno.apellido)
+ 	def contAlumMayYMen(self, edadCom):
+ 		mayor=0
+ 		menor=0
+ 		for alumno in self.alumnos:
+ 			if alumno.soyMayor(edadCom):
+ 				mayor+=1
+ 			else:
+ 				menor+=1
+ 		print('''en el curso %s, existen %s mayores que %s y existen %S menores'''  %(self.nombre, mayor, edadCom, menor))
+ 				
  			
