@@ -33,6 +33,6 @@ class Curso(object):
  				mayor+=1
  			else:
  				menor+=1
- 		print('''en el curso %s, existen %s mayores que %s y existen %S menores'''  %(self.nombre, mayor, edadCom, menor))
+ 		print('''en el curso %s, existen %s mayores y %S menores que %s'''  %(self.nombre, mayor, menor, edadCom))
  				
  			
